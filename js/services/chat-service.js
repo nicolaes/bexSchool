@@ -9,16 +9,16 @@ class ChatService {
     }
 
     getAllMessages() {
-        if (!this.chatRef) {
-            throw new Error('You need to register first.');
-        }
-
         return this.$firebaseArray(this.chatRef);
     }
 
     sendMessage(author, message) {
-        // code will be posted on chat :)
+        this.$firebaseArray(this.chatRef).$add({
+            author: author,
+            message: message
+        });
     }
 }
 
-// declare Angular service here
+angular.module('bexSchool.services.chat', ['firebase'])
+    .service('ChatService', ChatService);

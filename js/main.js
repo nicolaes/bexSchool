@@ -1,1 +1,3 @@
-angular.module('bexSchool', []);
+angular.module('bexSchool', [
+    'bexSchool.directives.chatRoom'
+]);
